@@ -2,28 +2,28 @@ import Prism from 'prismjs';
 import 'prism-svelte';
 
 const plain = `<script>
-import AutoResizeTextarea from 'svelte-autoresize-textarea';
+import { AutoResizeTextarea } from 'svelte-autoresize-textarea';
 </script>
 
 <AutoResizeTextarea />
 `;
 
 const minRows = `<script>
-import AutoResizeTextarea from 'svelte-autoresize-textarea';
+import { AutoResizeTextarea } from 'svelte-autoresize-textarea';
 </script>
 
 <AutoResizeTextarea minRows={5} />
 `;
 
 const minMaxRows = `<script>
-import AutoResizeTextarea from 'svelte-autoresize-textarea';
+import { AutoResizeTextarea } from 'svelte-autoresize-textarea';
 </script>
 
 <AutoResizeTextarea minRows={5} maxRows={10} />
 `;
 
 const controlled = `<script>
-import AutoResizeTextarea from 'svelte-autoresize-textarea';
+import { AutoResizeTextarea } from 'svelte-autoresize-textarea';
 
 let value = '';
 </script>

@@ -20,11 +20,11 @@ function addDummyText() {
 </script>
 
 <svelte:head>
-	<title>SvelteUse • {SiteTitle}</title>
+	<title>SvelteUse • Svelte Autosize Textarea</title>
 
-	<meta name="twitter:title" content="SvelteUse" />
-	<meta name="twitter:description" content={SiteTitle} />
-	<meta name="description" content={SiteDescription} />
+	<meta name="twitter:title" content="Svelte Autosize Textarea" />
+	<meta name="twitter:description" content="Svelte Autosize Textarea" />
+	<meta name="description" content="A Svelte textarea component which will automatically resize itself when content changes." />
 
 	<style>
 		:root {
