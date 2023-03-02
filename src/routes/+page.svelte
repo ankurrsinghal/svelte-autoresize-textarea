@@ -2,7 +2,8 @@
 import AutoResizeTextarea from '$lib/AutoResizeTextarea.svelte';
 import { SiteDescription, SiteTitle } from './constants';
 import type { PageData } from './$types';
-	import Button from './Button.svelte';
+import Button from './Button.svelte';
+	import Code from './Code.svelte';
 
 export let data: PageData;
 
@@ -133,98 +134,76 @@ function addDummyText() {
 	</style>
 </svelte:head>
 
-<section class="py-10">
+<section class="p-6">
   <div class="max-w-xl">
-    <h1 class="text-7xl tracking-wider font-extralight uppercase text-second leading-snug">Svelte <b class="text-prime">AutoResize</b> Textarea</h1>
+    <h1 class="text-5xl tracking-wider font-extralight uppercase text-second leading-snug">Svelte <b class="text-prime">AutoResize</b> Textarea</h1>
   </div>
 </section>
 
-<section class="py-10">
-  <div>
-    <h2 class="text-2xl mb-8">Quick Start</h2>
-    <div class=" border border-slate-400 rounded-lg flex">
-      <div class="p-4 flex-1 text-sm">
-        <pre>
-          <code>
-{@html data.plain}
-          </code>
-        </pre>
-      </div>
-      <div class="w-px bg-slate-600" />
-      <div class="flex-1 flex items-center justify-center">
-        <AutoResizeTextarea placeholder="Enter some text..." class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80" />
+<section class="p-4 pb-20">
+  <section class="py-10">
+    <div>
+      <h2 class="text-2xl mb-8">Quick Start</h2>
+      <div class=" border border-slate-400 rounded-lg flex overflow-clip flex-col">
+        <Code title="Component.svelte" code={data.plain} />
+        <div class="w-px bg-slate-600" />
+        <div class="flex-1 flex p-6">
+          <AutoResizeTextarea placeholder="Enter some text..." class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80" />
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="py-10">
-  <div>
-    <h2 class="text-2xl mb-8">Min rows</h2>
-    <div class=" border border-slate-400 rounded-lg flex">
-      <div class="p-4 flex-1 text-sm">
-        <pre>
-          <code>
-{@html data.minRows}
-          </code>
-        </pre>
-      </div>
-      <div class="w-px bg-slate-600" />
-      <div class="flex-1 flex items-center justify-center">
-        <AutoResizeTextarea
-          placeholder="Min 5 rows..."
-          class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80"
-          minRows={5}
-        />
+  </section>
+  
+  <section class="py-10">
+    <div>
+      <h2 class="text-2xl mb-8">Min rows</h2>
+      <div class=" border border-slate-400 rounded-lg flex overflow-clip flex-col">
+        <Code title="Component.svelte" code={data.minRows} />
+        <div class="w-px bg-slate-600" />
+        <div class="flex-1 flex p-6">
+          <AutoResizeTextarea
+            placeholder="Min 5 rows..."
+            class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80"
+            minRows={5}
+          />
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="py-10">
-  <div>
-    <h2 class="text-2xl mb-8">Min/Max rows</h2>
-    <div class=" border border-slate-400 rounded-lg flex">
-      <div class="p-4 flex-1 text-sm">
-        <pre>
-          <code>
-{@html data.minMaxRows}
-          </code>
-        </pre>
-      </div>
-      <div class="w-px bg-slate-600" />
-      <div class="flex-1 flex items-center justify-center">
-        <AutoResizeTextarea
-          placeholder="Min 5 - Max 10 rows..."
-          class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80"
-          minRows={5}
-          maxRows={10}
-        />
+  </section>
+  
+  <section class="py-10">
+    <div>
+      <h2 class="text-2xl mb-8">Min/Max rows</h2>
+      <div class=" border border-slate-400 rounded-lg flex flex-col overflow-clip">
+        <Code title="Component.svelte" code={data.minMaxRows} />
+        <div class="w-px bg-slate-600" />
+        <div class="flex-1 flex p-6">
+          <AutoResizeTextarea
+            placeholder="Min 5 - Max 10 rows..."
+            class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80"
+            minRows={5}
+            maxRows={10}
+          />
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="py-10">
-  <div>
-    <h2 class="text-2xl mb-8">Controlled textarea</h2>
-    <div class=" border border-slate-400 rounded-lg flex">
-      <div class="p-4 flex-1 text-sm">
-        <pre>
-          <code>
-{@html data.minMaxRows}
-          </code>
-        </pre>
-      </div>
-      <div class="w-px bg-slate-600" />
-      <div class="flex-1 flex items-center justify-center flex-col py-4">
-        <Button on:click={addDummyText} class="mb-4">Add text</Button>
-        <AutoResizeTextarea
-          placeholder="Min 5 - Max 10 rows..."
-          class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80"
-          bind:value={value}
-        />
+  </section>
+  
+  <section class="py-10">
+    <div>
+      <h2 class="text-2xl mb-8">Controlled textarea</h2>
+      <div class=" border border-slate-400 rounded-lg flex overflow-clip flex-col">
+        <Code title="Component.svelte" code={data.controlled} />
+        <div class="w-px bg-slate-600" />
+        <div class="flex-1 flex flex-col p-6">
+          <Button on:click={addDummyText} class="mb-4 mr-auto">Add text</Button>
+          <AutoResizeTextarea
+            placeholder="Value is binded to a script value"
+            class="border-2 border-black p-4 rounded-md focus:border-blue-500 w-80"
+            bind:value={value}
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>

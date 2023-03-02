@@ -1,34 +1,34 @@
 import Prism from 'prismjs';
 import 'prism-svelte';
 
-const plain = `
-// Component.svelte
-
-<script>
+const plain = `<script>
 import AutoResizeTextarea from 'svelte-auto-resize-textarea';
 </script>
 
 <AutoResizeTextarea />
 `;
 
-const minRows = `
-// Component.svelte
-
-<script>
+const minRows = `<script>
 import AutoResizeTextarea from 'svelte-auto-resize-textarea';
 </script>
 
 <AutoResizeTextarea minRows={5} />
 `;
 
-const minMaxRows = `
-// Component.svelte
-
-<script>
+const minMaxRows = `<script>
 import AutoResizeTextarea from 'svelte-auto-resize-textarea';
 </script>
 
 <AutoResizeTextarea minRows={5} maxRows={10} />
+`;
+
+const controlled = `<script>
+import AutoResizeTextarea from 'svelte-auto-resize-textarea';
+
+let value = '';
+</script>
+
+<AutoResizeTextarea bind:value={value} />
 `;
 
 export async function load() {
@@ -36,5 +36,6 @@ export async function load() {
     plain: Prism.highlight(plain, Prism.languages.svelte, 'svelte'),
     minRows: Prism.highlight(minRows, Prism.languages.svelte, 'svelte'),
     minMaxRows: Prism.highlight(minMaxRows, Prism.languages.svelte, 'svelte'),
+    controlled: Prism.highlight(controlled, Prism.languages.svelte, 'svelte'),
   }
 }
